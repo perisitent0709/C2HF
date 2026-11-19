@@ -1,0 +1,28 @@
+SYSTEM = C2HF_1PCT_STRAIN_RELAX   # 1%双轴拉伸后的结构优化
+
+GGA = PE                          # PBE泛函
+ISPIN = 1                         # 非自旋极化
+
+ISTART = 0                        # 不读取旧WAVECAR
+ICHARG = 2                        # 从原子电荷密度开始自洽
+
+ENCUT = 400                       # 截断能400 eV，与论文一致
+PREC = Accurate                   # 高精度FFT网格
+LREAL = .FALSE.                   # 倒空间投影
+LASPH = .TRUE.                    # PAW非球形修正
+
+ALGO = Normal                     # 常规电子迭代
+NELM = 120                        # 最大电子迭代次数
+EDIFF = 1E-8                      # 提高电子精度，减少声子计算中的力误差
+
+ISMEAR = 0                        # 高斯展宽
+SIGMA = 0.05                      # 展宽宽度0.05 eV
+
+IBRION = 2                        # 共轭梯度法优化原子位置
+NSW = 150                         # 最多150个离子优化步
+ISIF = 2                          # 固定晶胞及1%应变，仅优化原子位置
+EDIFFG = -0.005                   # 最大原子受力低于0.005 eV/Å时停止
+
+LWAVE = .FALSE.                   # 不保存WAVECAR
+LCHARG = .FALSE.                  # 不保存CHGCAR
+

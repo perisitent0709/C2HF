@@ -1,0 +1,30 @@
+SYSTEM = C2HF_static_SCF
+
+# Exchange-correlation
+GGA = PE
+
+# Precision
+ENCUT = 400
+PREC = Accurate
+EDIFF = 1E-7
+NELM = 120
+ALGO = Normal
+
+# Static calculation
+ISTART = 0
+ICHARG = 12
+IBRION = -1
+NSW = 0
+
+# Electronic occupation
+ISMEAR = 0
+SIGMA = 0.05
+ISPIN = 1
+
+# Accuracy
+LREAL = .FALSE.
+LASPH = .TRUE.
+
+# Output
+LWAVE = .FALSE.
+LCHARG = .TRUE.

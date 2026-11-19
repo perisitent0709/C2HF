@@ -1,0 +1,188 @@
+{
+    'exe' : {
+        'mode' : {
+             'ipa' : true,
+            //'ipa' : false,
+            //'bse' : true,
+             'bse' : false,
+        },
+       'ipa' : [
+        'calc_fepr',
+         'calc_shg_onk',
+        // 'calc_shg_onk_kweight',
+         'calc_shg_int',
+         'calc_shg_npz2dat',
+        // 'calc_shg_chi2light',
+         'calc_shg_mapping',
+         'calc_fepr_mapping',
+
+
+         'calc_feprr', // include fepr
+         'calc_bpve_onk',
+         'calc_bpve_int',
+         'calc_bpve_npz2dat',
+       ],
+       'bse' : [
+        'init', // several, translate file format and calc adjacent k-points
+        'calc_dadk',
+        'calc_rryq',
+        // 'calc_int',
+        // 'bse_npz2dat',
+        // 'calc_shg_chi2light',
+       ],
+    },
+    'files' : {
+        'input' : {
+            'poscar' : './POSCAR',
+            'ipa' : {
+                // 'path_wave' : './datas/no_sym/WAVECAR',
+                'path_wave' : '../8_shg_vasp/WAVECAR',
+                // 'path_wave' : './datas/WAVECAR',
+            },
+            'bse' : {
+                'path_bsefatband' : './BSEFATBAND_stream_bin',
+            },
+        },
+        'output': {
+            'path_base' : 'output',
+            'ipa' : {
+                'path_fepr_onk' : 'IPA_FEPR_onK', // fepr == feprr 
+                'path_shg_ipa_onk' : 'IPA_SHG_onK',
+                'path_shg_ipa_int' : 'IPA_SHG',
+                'path_shg_ipa_mapping_onk' : 'IPA_SHG_mapping_onK',
+                'path_shg_fepr_mapping_onk' : 'IPA_FEPR_mapping_onK',
+                'path_shg_chi2light' : 'IPA_Chi2light',
+                //
+                'path_bpve_ipa_onk' : 'IPA_BPVE_onK',
+                'path_bpve_ipa_int' : 'IPA_BPVE',
+            },
+            'bse' : {
+                'path_bse_onk' : 'BSE_onK',
+                'path_bse_dadk_onk' : 'BSE_dadk_onK',
+                'path_bse_rryq_onk' : 'BSE_RRYQ_onK',
+                'path_bse_shg_int' : 'BSE_SHG',
+                'path_shg_chi2light' : 'BSE_Chi2light',
+            },
+        },
+    },
+    'setting' : {
+        'base' : {
+            // 'is_sym' : false,
+            'is_soc' : false,
+            'is_gam_only' : false,
+            'vbm' : null,
+            'cbm' : null,
+            'vb_add' : 100,
+            'cb_add' : 100,
+            'ksi' : 0.05,
+            'tolerance' : 1e-3,
+        },
+        'sym' : {
+            //'is_sym' : true,
+             'is_sym' : false,
+            'symprec' : 0.001,
+        },
+        'light' : {
+            'light_start': 0.,
+            'light_end' : 5.,
+            'num_light_split' : 301,
+        },
+        'ipa' : {
+            // -1, 0 : by index of bands 1 : by E-fermi
+            'scissor_mode' : 1,
+            'scissor_value' : 1.19,
+        },
+        'bse' : {
+            'int_out_nm' : false,
+            'iL_start' : 0,
+            'iL_end' : 1999,
+        },
+        'dimension' : {
+            'unit' : 'pm/v', // 'a.u.', 'esu', 'pm^2/v', 'm/v'
+            'dimension' : 2,
+            'vacuum': 20.,
+            'thickness' : 6.,
+        },
+        'other':{
+            'is_plot' : true,
+        },
+        'mapping': {
+            'fepr' : {
+                'ibnd' : 8,
+                'jbnd' : 9,
+            },
+            'light' : 3.5,
+        },
+        'tensor3d_components' : [
+             [0,0,0],
+             [0,0,1],
+             [0,0,2],
+             [0,1,1],
+             [0,1,2],
+             [0,2,2],
+             [1,0,0],
+             [1,0,1],
+             [1,0,2],
+            [1,1,1],
+             [1,1,2],
+             [1,2,2],
+             [2,0,0],
+             [2,0,1],
+             [2,0,2],
+             [2,1,1],
+             [2,1,2],
+             [2,2,2],
+        ],
+        'chi2light' : {
+            'E0' : 1.,
+            'epsilon0' : 1.,
+            'num_theta_split' : 101,
+            'num_phi_split' : 101,
+            // for ipa: shg, chi, eta, sigma
+            // for bse: with, without
+            'shg_class' : 'shg',
+            // 'shg_class' : 'with',
+            // 'shg_class' : 'without',
+            // 'list_shg_abc' : {
+                // '222' : 'shg_bse_222.npz',
+                // '212' : 'shg_bse_212.npz',
+                // '211' : 'shg_bse_211.npz',
+                // '202' : 'shg_bse_202.npz',
+                // '201' : 'shg_bse_201.npz',
+                // '200' : 'shg_bse_200.npz',
+                // '122' : 'shg_bse_122.npz',
+                // '112' : 'shg_bse_112.npz',
+                // '111' : 'shg_bse_111.npz',
+                // '102' : 'shg_bse_102.npz',
+                // '101' : 'shg_bse_101.npz',
+                // '100' : 'shg_bse_100.npz',
+                // '022' : 'shg_bse_022.npz',
+                // '012' : 'shg_bse_012.npz',
+                // '011' : 'shg_bse_011.npz',
+                // '002' : 'shg_bse_002.npz',
+                // '001' : 'shg_bse_001.npz',
+                // '000' : 'shg_bse_000.npz',
+            // },
+            'list_shg_abc' : {
+                '222' : 'shg_222.npz',
+                '212' : 'shg_212.npz',
+                '211' : 'shg_211.npz',
+                '202' : 'shg_202.npz',
+                '201' : 'shg_201.npz',
+                '200' : 'shg_200.npz',
+                '122' : 'shg_122.npz',
+                '112' : 'shg_112.npz',
+                '111' : 'shg_111.npz',
+                '102' : 'shg_102.npz',
+                '101' : 'shg_101.npz',
+                '100' : 'shg_100.npz',
+                '022' : 'shg_022.npz',
+                '012' : 'shg_012.npz',
+                '011' : 'shg_011.npz',
+                '002' : 'shg_002.npz',
+                '001' : 'shg_001.npz',
+                '000' : 'shg_000.npz',
+            },
+        },
+    },
+}

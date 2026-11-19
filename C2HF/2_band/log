@@ -1,0 +1,48 @@
+ running   12 mpi-ranks, on    1 nodes
+ distrk:  each k-point on   12 cores,    1 groups
+ distr:  one band on    1 cores,   12 groups
+ vasp.6.4.2 20Jul23 (build Apr 09 2025 19:17:04) complex                        
+  
+ POSCAR found type information on POSCAR C F H 
+ POSCAR found :  3 types and       4 ions
+ scaLAPACK will be used
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     For optimal performance we recommend to set                             |
+|       NCORE = 2 up to number-of-cores-per-socket                            |
+|     NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).      |
+|     This setting can greatly improve the performance of VASP for DFT.       |
+|     The default, NCORE=1 might be grossly inefficient on modern             |
+|     multi-core architectures or massively parallel machines. Do your        |
+|     own testing! More info at https://www.vasp.at/wiki/index.php/NCORE      |
+|     Unfortunately you need to use the default for GW and RPA                |
+|     calculations (for HF NCORE is supported but not extensively tested      |
+|     yet).                                                                   |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ LDA part: xc-table for Pade appr. of Perdew
+ WARNING: stress and forces are not correct
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ charge-density read from file: C2HF_static_SCF                         
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.968925612094E+02    0.96893E+02   -0.63842E+03  1476   0.834E+02
+DAV:   2    -0.192658360711E+02   -0.11616E+03   -0.10276E+03  2388   0.183E+02
+DAV:   3    -0.245253117273E+02   -0.52595E+01   -0.50783E+01  1968   0.588E+01
+DAV:   4    -0.245668008426E+02   -0.41489E-01   -0.41489E-01  2628   0.439E+00
+DAV:   5    -0.245670672616E+02   -0.26642E-03   -0.26642E-03  2184   0.137E-01
+DAV:   6    -0.245670694866E+02   -0.22250E-05   -0.22251E-05  2664   0.887E-03
+DAV:   7    -0.245670695312E+02   -0.44601E-07   -0.44622E-07  2364   0.537E-04
+   1 F= -.24567070E+02 E0= -.24567070E+02  d E =-.189202E-10

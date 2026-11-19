@@ -1,0 +1,66 @@
+ running   12 mpi-ranks, on    1 nodes
+ distrk:  each k-point on   12 cores,    1 groups
+ distr:  one band on    1 cores,   12 groups
+ vasp.6.4.2 20Jul23 (build Apr 09 2025 19:17:04) complex                        
+  
+ POSCAR found type information on POSCAR C F H 
+ POSCAR found :  3 types and       4 ions
+ scaLAPACK will be used
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     For optimal performance we recommend to set                             |
+|       NCORE = 2 up to number-of-cores-per-socket                            |
+|     NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).      |
+|     This setting can greatly improve the performance of VASP for DFT.       |
+|     The default, NCORE=1 might be grossly inefficient on modern             |
+|     multi-core architectures or massively parallel machines. Do your        |
+|     own testing! More info at https://www.vasp.at/wiki/index.php/NCORE      |
+|     Unfortunately you need to use the default for GW and RPA                |
+|     calculations (for HF NCORE is supported but not extensively tested      |
+|     yet).                                                                   |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ LDA part: xc-table for Pade appr. of Perdew
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The number of bands has been changed from the values supplied in        |
+|     the INCAR file. This is a result of running the parallel version.       |
+|     The orbitals not found in the WAVECAR file will be initialized with     |
+|     random numbers, which is usually adequate. For correlated               |
+|     calculations, however, you should redo the groundstate calculation.     |
+|     I found NBANDS = 32. Now, NBANDS = 36.                                  |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ WARNING: stress and forces are not correct
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ charge-density read from file: C2HF_static_SCF                         
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.586162109821E+02    0.58616E+02   -0.53935E+03  4416   0.285E+02
+DAV:   2    -0.220928079157E+02   -0.80709E+02   -0.76258E+02  5952   0.946E+01
+DAV:   3    -0.254342603399E+02   -0.33415E+01   -0.33268E+01  5808   0.182E+01
+DAV:   4    -0.254559146689E+02   -0.21654E-01   -0.21654E-01  4860   0.175E+00
+DAV:   5    -0.254560999148E+02   -0.18525E-03   -0.18525E-03  5796   0.143E-01
+DAV:   6    -0.254561025148E+02   -0.26000E-05   -0.25999E-05  4896   0.159E-02
+DAV:   7    -0.254561025710E+02   -0.56195E-07   -0.56214E-07  5844   0.180E-03
+   1 F= -.25456103E+02 E0= -.25456103E+02  d E =-.227367E-11

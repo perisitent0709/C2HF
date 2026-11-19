@@ -1,0 +1,26 @@
+SYSTEM = C2HF_SHG_WAVECAR
+
+# 1. Exchange-Correlation & Precision
+GGA    = PE             # PBE 泛函 (论文指定)
+ENCUT  = 400            # 平面波截断能 400 eV (论文指定)
+PREC   = Accurate       # 高精度网格
+LREAL  = .FALSE.        # 倒空间精确投影 (光学跃迁矩阵元必备)
+EDIFF  = 1E-06          # 自洽收敛标准 1E-6
+LASPH  = .TRUE.         # PAW 非球形电荷修正
+
+# 2. Electronic Relaxation & Smearing
+ISMEAR = 0              # 高斯展宽 (半导体标准)
+SIGMA  = 0.05
+ISPIN  = 1              # 非自旋极化
+NELM   = 90
+ALGO   = Normal
+
+# 3. Static Calculation (严谨静态计算)
+IBRION = -1             # 禁止离子移动
+NSW    = 0              # 0 个离子步
+
+# 4. Optics & Symmetry (run_nlo 核心对接项)
+NBANDS = 36             # 包含 28 条导带，充分覆盖 0~5 eV 跃迁
+ISYM   = -1             # 核心：关闭对称性约化，输出全布里渊区完整波函数
+LWAVE  = .TRUE.         # 必须输出 WAVECAR 供 run_nlo 计算
+LCHARG = .TRUE.         # 保存 CHGCAR

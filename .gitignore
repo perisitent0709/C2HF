@@ -1,0 +1,87 @@
+# ============================================================
+# VASP 计算目录专用 .gitignore
+# 追踪：输入文件 (POSCAR, INCAR, KPOINTS, POTCAR, 脚本)
+# 忽略：大体积输出文件、二进制波函数文件
+# ============================================================
+
+# ---------- VASP 大体积输出文件 ----------
+WAVECAR
+WAVEDER
+CHG
+CHGCAR
+CHGCAR_sum
+CHGDIFF.vasp
+ELFCAR
+PROCAR
+LOCPOT
+vasprun.xml
+OUTCAR
+OSZICAR
+EIGENVAL
+DOSCAR
+PCDAT
+XDATCAR
+IBZKPT
+REPORT
+TMPCAR
+
+# ---------- 保留的输出文件（小、科研必要）----------
+# CONTCAR  ← 弛豫最终结构，建议追踪，不忽略
+# POSCAR   ← 追踪
+
+# ---------- VASPKIT / 后处理输出 ----------
+REFORMATTED_BAND*
+REFORMATTED_DOS*
+BAND.dat
+BAND_GAP
+PDOS_*.dat
+PDOS_SUM_*.dat
+PLANE-AVERAGE.dat
+PLANE-AVERAGE.png
+FERMI_SURFACE*
+*.vasp
+
+# ---------- 计算任务日志与调度文件 ----------
+*.out
+*.log
+*.err
+slurm-*.out
+job.*
+
+# ---------- Python 缓存 ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ---------- 编辑器与系统文件 ----------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ---------- 嵌套 Git 仓库与大体积压缩包/二进制（GitHub 限制单个文件 <= 100MB）----------
+nlo/BPVE/
+nlo/shg-release/
+nlo/run_nlo*
+*.tar.gz
+*.zip
+*.tar
+*.7z
+*.rar
+*.gz
+wannier90_tb.dat
+
+# ---------- 临时 / scratch 文件 ----------
+tmp/
+scratch/
+*.tmp
+*.bak

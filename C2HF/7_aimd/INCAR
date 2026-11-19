@@ -1,0 +1,25 @@
+Global Parameters
+ISTART = 0             # 从头开始计算，不读取旧波函数
+ISPIN  = 1             # 非自旋极化
+ENCUT  = 400           # 平面波截断能 400 eV (与论文一致)
+PREC   = Normal        # 动力学常规精度
+LREAL  = Auto          # 开启实空间投影加速 (大超胞必备)
+LWAVE  = .FALSE.       # 不写巨大 WAVECAR，节约硬盘
+LCHARG = .FALSE.       # 不写巨大 CHGCAR
+
+Electronic Relaxation
+ISMEAR = 0             # 高斯展宽
+SIGMA  = 0.05
+EDIFF  = 1E-05         # 动力学标准电子收敛精度
+
+Molecular Dynamics (293 K AIMD)
+IBRION = 0             # 开启分子动力学
+MDALGO = 2             # Nosé-Hoover 恒温槽
+SMASS  = 0             # Nosé 质量参数
+NSW    = 5000          # 运行 5000 步 (论文指定 5000 fs)
+POTIM  = 1.0           # 步长 1.0 fs
+TEBEG  = 293           # 初始温度 293 K
+TEEND  = 293           # 平衡温度 293 K
+ISIF   = 2             # 固定晶格与真空层，仅允许原子热振动
+ISYM   = 0             # 必须关闭对称性判断
+NWRITE = 0             # 精简输出，减少日志文件体积

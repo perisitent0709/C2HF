@@ -1,0 +1,29 @@
+SYSTEM = C2HF_PHONON_1PCT  # 1%双轴应变声子谱
+
+GGA = PE                   # PBE泛函
+ISPIN = 1                  # 非自旋极化
+ISTART = 0                 # 不读取WAVECAR
+ICHARG = 2                 # 从原子电荷开始自洽
+
+ENCUT = 400                # 平面波截断能
+PREC = Accurate            # 高精度
+LREAL = .FALSE.            # 倒空间投影
+LASPH = .TRUE.             # PAW非球形修正
+
+ALGO = Normal              # Davidson电子算法
+NELM = 120                 # 最大电子迭代次数
+EDIFF = 1E-8               # 声子力计算采用较严格精度
+
+ISMEAR = 0                 # 高斯展宽
+SIGMA = 0.05               # 展宽0.05 eV
+
+IBRION = 6                 # 使用对称性进行有限位移声子计算
+NSW = 1                    # 声子计算流程
+NFREE = 2                  # 正负位移中心差分
+POTIM = 0.015              # 位移幅度0.015 Å
+
+LPHON_DISPERSION = .TRUE.  # 计算声子色散
+PHON_NWRITE = 1            # 在OUTCAR中输出各q点声子频率
+
+LWAVE = .FALSE.            # 不保存WAVECAR
+LCHARG = .FALSE.           # 不保存CHGCAR
