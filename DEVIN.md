@@ -90,6 +90,21 @@ python cdd_auto.py --analyze # 自洽完成后一键后处理（VASPKIT 314 + 31
 - **VESTA 3.x**：加载 `CHGDIFF.vasp` 查看差分电荷密度三维等值面
 - **Origin / matplotlib**：绘制能带、DOS、声子谱、SHG 张量频谱
 
+### 5. 科研文献检索与参数核验套件 (PaperQA2 + Stanford STORM)
+
+本项目已集成 FutureHouse PaperQA2（零幻觉学术论文精准问答）与 Stanford STORM（多专家视角调研综述），用于自动对比顶刊文献中的 DFT 计算与非线性光学实验参数：
+
+```bash
+# 在 Devin Linux 环境中一键安装文献调研套件
+pip install -r requirements_research.txt
+
+# 运行文献调研与参数提取脚本（自动读取 literature_pdf/ 目录下的参考论文）
+python research_assistant.py
+
+# 或使用 PaperQA CLI 直接向文献库精准提问
+pqa ask "What are the typical SHG chi2 and band gap values for 2D Janus monolayers?"
+```
+
 ---
 
 ## 计算工作流总览
